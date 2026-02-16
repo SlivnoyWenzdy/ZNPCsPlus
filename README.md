@@ -47,3 +47,7 @@ Open an issue in the GitHub [issue tracker](https://github.com/Pyrbu/ZNPCsPlus/i
 - [DazzleConf](https://github.com/A248/DazzleConf) - Configuration library
 - [Director](https://github.com/Pyrbu/Director) - Command library
 - [PlaceholderAPI](https://github.com/PlaceholderAPI/PlaceholderAPI) - Universal string placeholder library
+
+
+## build
+ ./gradlew clean shadowJar
