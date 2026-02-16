@@ -23,6 +23,19 @@ public class EquipmentProperty extends EntityPropertyImpl<ItemStack> {
 
     @Override
     public void apply(Player player, PacketEntity entity, boolean isSpawned, Map<Integer, EntityData<?>> properties) {
-        packetFactory.sendEquipment(player, entity, new Equipment(slot, entity.getProperty(this)));
+        if (player == null || !player.isOnline()) return;
+        if (entity == null) return;
+        if (slot == null) return;
+
+        ItemStack item = entity.getProperty(this);
+        if (item == null) {
+            item = ItemStack.EMPTY;
+        }
+
+        try {
+            packetFactory.sendEquipment(player, entity, new Equipment(slot, item));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
